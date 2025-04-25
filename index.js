@@ -1,4 +1,3 @@
-import fs from "node:fs";
 import http from "node:http";
 import path from "node:path";
 import { createBareServer } from "@nebula-services/bare-server-node";
@@ -143,3 +142,19 @@ server.on("listening", () => {
 });
 
 server.listen({ port: PORT });
+
+import { Analytics } from '@vercel/analytics/next';
+ 
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head>
+        <title>Next.js</title>
+      </head>
+      <body>
+        {children}
+        <Analytics />
+      </body>
+    </html>
+  );
+}
